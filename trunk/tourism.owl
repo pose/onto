@@ -523,7 +523,7 @@
                     <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Place"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasPopulation"/>
-                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#BigPopulation"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#BigPopulation"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -768,7 +768,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#aMalePopulation">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#MalePopulation"/>
-        <hasValue rdf:datatype="&xsd;integer">1893342</hasValue>
+        <hasValue rdf:datatype="&xsd;int">1893342</hasValue>
     </owl:NamedIndividual>
     
 
