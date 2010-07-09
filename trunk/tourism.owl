@@ -114,6 +114,17 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#isMorePopulatedThan -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#isMorePopulatedThan">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Place"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Place"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
 
     <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
@@ -262,27 +273,6 @@
         </owl:equivalentClass>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasPrice"/>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Price"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasAgeInfBound"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasName"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#isLocatedIn"/>
                 <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Place"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -297,6 +287,27 @@
                     <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Theatre"/>
                 </owl:unionOf>
             </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasPrice"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Price"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasName"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasAgeInfBound"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
@@ -384,16 +395,16 @@
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#City">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasState"/>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#State"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasName"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasName"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasState"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#State"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -794,6 +805,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#ParisPlace">
         <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Place"/>
         <hasAttraction rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Louvre"/>
+        <isMorePopulatedThan rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#RomaPlace"/>
         <hasPopulation rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#aFemalePopulation"/>
         <hasDimension rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#anotherDimension"/>
         <hasPopulation rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#anotherMalePopulation"/>
@@ -820,6 +832,19 @@
         <hasName rdf:datatype="&xsd;string">Pelvis Night Club</hasName>
         <isLocatedIn rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#BuenosAiresPlace"/>
         <hasPrice rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#aPrice"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#RomaPlace -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#RomaPlace">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Place"/>
+        <isMorePopulatedThan rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#BuenosAiresPlace"/>
+        <hasDimension rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#aDimension"/>
+        <hasPopulation rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#aFemalePopulation"/>
+        <hasLocation rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#aLocation"/>
+        <hasAttraction rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#anAttraction"/>
     </owl:NamedIndividual>
     
 
