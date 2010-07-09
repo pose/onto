@@ -241,6 +241,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#ArtMuseum -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#ArtMuseum">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Museum"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Attraction -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Attraction">
@@ -267,6 +275,16 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#AdultsAttraction"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#KidsAttraction"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Museum"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Theatre"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasPrice"/>
                 <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Price"/>
@@ -278,6 +296,83 @@
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#isLocatedIn"/>
                 <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Place"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#BigPopulation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#BigPopulation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Population"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasValue"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;int"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">2000000</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#SmallPopulation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#CabareteTheatre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#CabareteTheatre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Theatre"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasAgeInfBound"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;int"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">21</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#ChildrenMuseum -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#ChildrenMuseum">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Museum"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasAgeInfBound"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;int"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">1</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -305,6 +400,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#CommonTheatre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#CommonTheatre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Theatre"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Country -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Country">
@@ -315,6 +418,24 @@
                 <owl:onDataRange rdf:resource="&xsd;string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#CountrySide -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#CountrySide">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Place"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasPopulation"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#SmallPopulation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
     </owl:Class>
     
 
@@ -393,36 +514,60 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Metropoly -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Metropoly">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Place"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasPopulation"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#BigPopulation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Museum -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Museum">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Attraction"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Place -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Place">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasPopulation"/>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Population"/>
-                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxQualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasLocation"/>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Location"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasDimension"/>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Dimension"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasAttraction"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Attraction"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasAttraction"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Attraction"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasDimension"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Dimension"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasLocation"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Location"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasPopulation"/>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Population"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxQualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
     </owl:Class>
     
 
@@ -464,6 +609,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#SmallPopulation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#SmallPopulation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Population"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#State -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#State">
@@ -481,6 +634,38 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#StripClub -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#StripClub">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Theatre"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasAgeInfBound"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;int"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="&xsd;integer">18</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Theatre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Theatre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Attraction"/>
     </owl:Class>
     
 
